@@ -1,0 +1,17 @@
+<!doctype html><html lang="it"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#172033"><link rel="manifest" href="manifest.json"><link rel="stylesheet" href="style.css">
+<title>Turni</title></head><body>
+<header><h1>Turni</h1><p>Ludovica · Luciano</p></header><main>
+<section class="card"><h2>1 · Carica Excel</h2><input id="file" type="file" accept=".xlsx,.xls,.csv"><p id="info">Nessun file caricato.</p></section>
+<section class="card"><h2>2 · Richieste speciali</h2><div class="grid">
+<label>Persona<select id="spPerson"><option>Ludovica</option><option>Luciano</option></select></label>
+<label>Data<input id="spDate" type="date"></label>
+<label>Richiesta<select id="spReq"><option value="">Seleziona</option><option>GIORNO</option><option>NOTTE</option><option>SMONTO NOTTE</option><option>LIBERO</option><option>mattina San Vito</option><option>pomeriggio San Vito</option><option>Guardia San Vito</option><option>guardia diurna PN</option><option>notte PN</option><option>mattina PN</option><option>8-15.30 spilimbergo</option><option>assenza</option></select></label></div>
+<button id="addSp">+ Aggiungi richiesta</button><div id="spList"></div></section>
+<section class="card"><h2>3 · Ferie Luciano</h2><p>Una ferie rende Luciano libero. Se è ferie durante una notte, non viene creato lo smonto del giorno successivo.</p>
+<div class="row"><input id="ferie" type="date"><button id="addFerie">+ Aggiungi ferie</button></div><div id="ferieList"></div></section>
+<div class="actions"><button id="run" disabled>ELABORA</button><button id="save" disabled>SCARICA EXCEL</button></div>
+<section class="card" id="out" hidden><h2>Anteprima</h2><div class="table"><table><thead><tr><th>Data</th><th>Ludovica</th><th>Luciano</th><th>Necessità</th></tr></thead><tbody id="body"></tbody></table></div></section>
+</main><footer>Elaborazione nel browser.</footer>
+<script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script><script src="app.js"></script></body></html>
