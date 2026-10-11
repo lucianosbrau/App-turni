@@ -62,6 +62,46 @@ object Notifier {
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
 
+    fun notifyTreatment(ctx: Context, plant: Plant, treatment: Treatment) {
+        ensureChannel(ctx)
+        val pi = PendingIntent.getBroadcast(
+            ctx, (treatment.id + 100000L).toInt(),
+            Intent(ctx, WateringReceiver::class.java)
+                .putExtra("action", "tDone").putExtra("tid", treatment.id),
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
+        val n = NotificationCompat.Builder(ctx, CHANNEL_ID)
+            .setSmallIcon(android.R.drawable.ic_menu_my_calendar)
+            .setContentTitle("Necessario ${treatment.type} a ${plant.name}")
+            .setContentText("Trattamento in scadenza per una pianta del tuo giardino")
+            .setStyle(NotificationCompat.BigTextStyle().bigText("Necessario ${treatment.type} a ${plant.name} (trattamento programmato ogni ${treatment.frequencyDays} giorni)."))
+            .addAction(0, "Fatto", pi)
+            .setAutoCancel(true)
+            .build()
+        val nm = ctx.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        nm.notify((treatment.id + 100000L).toInt(), n)
+    }
+
+    fun scheduleTreatment(ctx: Context, plant: Plant, treatment: Treatment) {
+        val am = ctx.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        val pi = PendingIntent.getBroadcast(
+            ctx, (treatment.id + 100000L).toInt(),
+            Intent(ctx, WateringReceiver::class.java).putExtra("tid", treatment.id),
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
+        val at = treatment.lastDoneMillis + treatment.frequencyDays * 24L * 3600L * 1000L
+        am.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, at, pi)
+    }
+
+    fun cancelTreatment(ctx: Context, treatment: Treatment) {
+        val am = ctx.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        am.cancel(PendingIntent.getBroadcast(
+            ctx, (treatment.id + 100000L).toInt(),
+            Intent(ctx, WateringReceiver::class.java).putExtra("tid", treatment.id),
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        ))
+    }
+
     fun hasPermission(ctx: Context): Boolean =
         Build.VERSION.SDK_INT < 33 ||
             ContextCompat.checkSelfPermission(ctx, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED
@@ -69,6 +109,14 @@ object Notifier {
 
 class WateringReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
+        val tid = intent.getLongExtra("tid", -1L)
+        if (tid != -1L) {
+            val t = TreatmentStore.load(context).firstOrNull { it.id == tid } ?: return
+            val plant = Store.loadPlants(context).firstOrNull { it.id == t.plantId } ?: return
+            Notifier.notifyTreatment(context, plant, t)
+            Notifier.scheduleTreatment(context, plant, t)
+            return
+        }
         val id = intent.getLongExtra("id", -1L)
         val plants = Store.loadPlants(context)
         val plant = plants.firstOrNull { it.id == id } ?: return
@@ -85,6 +133,10 @@ class BootReceiver : BroadcastReceiver() {
         for (p in plants) {
             val intervalMs = p.wateringIntervalDays * 24L * 3600L * 1000L
             Notifier.scheduleNext(context, p, intervalMs)
+        }
+        val plantById = plants.associateBy { it.id }
+        for (t in TreatmentStore.load(context)) {
+            plantById[t.plantId]?.let { Notifier.scheduleTreatment(context, it, t) }
         }
     }
 }

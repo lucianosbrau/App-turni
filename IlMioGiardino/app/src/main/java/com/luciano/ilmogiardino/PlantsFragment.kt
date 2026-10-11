@@ -84,7 +84,11 @@ class PlantsFragment : Fragment() {
             h.species.text = p.species.ifBlank { "Specie sconosciuta" }
             h.details.text = "📍 ${areaName(p.areaId)} • 💧 ogni ${p.wateringIntervalDays} giorni"
             SpeciesImages.into(requireContext(), p.species, h.img)
-            h.itemView.setOnClickListener { showPlantDialog(p) }
+            h.itemView.setOnClickListener {
+                PlantDetailFragment().also { it.arguments = Bundle().apply { putLong("plantId", p.id) } }
+                    .let { (requireActivity() as MainActivity).show(it) }
+            }
+            h.btnEdit.setOnClickListener { showPlantDialog(p) }
             h.btnDelete.setOnClickListener {
                 AlertDialog.Builder(requireContext())
                     .setTitle("Eliminare ${p.name}?")
@@ -104,6 +108,7 @@ class PlantsFragment : Fragment() {
             val name: TextView = v.findViewById(R.id.tvName)
             val species: TextView = v.findViewById(R.id.tvSpecies)
             val details: TextView = v.findViewById(R.id.tvDetails)
+            val btnEdit: ImageButton = v.findViewById(R.id.btnEdit)
             val btnDelete: ImageButton = v.findViewById(R.id.btnDelete)
         }
     }
