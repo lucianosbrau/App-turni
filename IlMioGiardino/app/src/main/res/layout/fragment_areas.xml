@@ -1,35 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="12dp">
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="16dp">
 
-        <Button
+        <ImageButton
             android:id="@+id/btnBack"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="← Indietro" />
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:src="@android:drawable/ic_media_previous"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Indietro" />
 
-        <Button
-            android:id="@+id/btnAddArea"
-            style="?android:attr/buttonBarButtonStyle"
+        <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="+ Area" />
+            android:text="Aree del giardino"
+            android:textAppearance="?attr/textAppearanceTitleLarge"
+            android:textStyle="bold"
+            android:textColor="@color/text_main" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnAddArea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="Nuova area"
+            android:src="@android:drawable/ic_input_add"
+            app:backgroundTint="@color/green_primary"
+            app:tint="#FFFFFF"
+            app:fabSize="mini" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/areasList"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingBottom="16dp" />
 </LinearLayout>

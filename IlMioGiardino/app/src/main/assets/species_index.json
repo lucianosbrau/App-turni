@@ -1,0 +1,162 @@
+{
+ "Rosa": [
+  "species/rosa_1.jpg",
+  "species/rosa_2.jpg"
+ ],
+ "Geranio": [
+  "species/geranio_1.jpg",
+  "species/geranio_2.jpg"
+ ],
+ "Basilico": [
+  "species/basilico_1.jpg",
+  "species/basilico_2.jpg"
+ ],
+ "Pomodoro": [
+  "species/pomodoro_1.jpg",
+  "species/pomodoro_2.jpg"
+ ],
+ "Salvia": [
+  "species/salvia_1.jpg",
+  "species/salvia_2.jpg"
+ ],
+ "Rosmarino": [
+  "species/rosmarino_1.jpg",
+  "species/rosmarino_2.jpg"
+ ],
+ "Lavanda": [
+  "species/lavanda_1.jpg",
+  "species/lavanda_2.jpg"
+ ],
+ "Menta": [
+  "species/menta_1.jpg",
+  "species/menta_2.jpg"
+ ],
+ "Orchidea": [
+  "species/orchidea_1.jpg",
+  "species/orchidea_2.jpg"
+ ],
+ "Ficus": [
+  "species/ficus_1.jpg",
+  "species/ficus_2.jpg"
+ ],
+ "Monstera": [
+  "species/monstera_1.jpg",
+  "species/monstera_2.jpg"
+ ],
+ "Sansevieria": [
+  "species/sansevieria_1.jpg",
+  "species/sansevieria_2.jpg"
+ ],
+ "Aloe": [
+  "species/aloe_1.jpg",
+  "species/aloe_2.jpg"
+ ],
+ "Oleandro": [
+  "species/oleandro_1.jpg",
+  "species/oleandro_2.jpg"
+ ],
+ "Camelia": [
+  "species/camelia_1.jpg",
+  "species/camelia_2.jpg"
+ ],
+ "Azalea": [
+  "species/azalea_1.jpg",
+  "species/azalea_2.jpg"
+ ],
+ "Ortensia": [
+  "species/ortensia_1.jpg",
+  "species/ortensia_2.jpg"
+ ],
+ "Begonia": [
+  "species/begonia_1.jpg",
+  "species/begonia_2.jpg"
+ ],
+ "Viola": [
+  "species/viola_1.jpg",
+  "species/viola_2.jpg"
+ ],
+ "Girasole": [
+  "species/girasole_1.jpg",
+  "species/girasole_2.jpg"
+ ],
+ "Margherita": [
+  "species/margherita_1.jpg",
+  "species/margherita_2.jpg"
+ ],
+ "Tulipano": [
+  "species/tulipano_1.jpg",
+  "species/tulipano_2.jpg"
+ ],
+ "Giglio": [
+  "species/giglio_1.jpg",
+  "species/giglio_2.jpg"
+ ],
+ "Peperoncino": [
+  "species/peperoncino_1.jpg",
+  "species/peperoncino_2.jpg"
+ ],
+ "Zucchina": [
+  "species/zucchina_1.jpg",
+  "species/zucchina_2.jpg"
+ ],
+ "Insalata": [
+  "species/insalata_1.jpg",
+  "species/insalata_2.jpg"
+ ],
+ "Fragola": [
+  "species/fragola_1.jpg",
+  "species/fragola_2.jpg"
+ ],
+ "Vite": [
+  "species/vite_1.jpg",
+  "species/vite_2.jpg"
+ ],
+ "Limone": [
+  "species/limone_1.jpg",
+  "species/limone_2.jpg"
+ ],
+ "Olivo": [
+  "species/olivo_1.jpg",
+  "species/olivo_2.jpg"
+ ],
+ "Ciliegio": [
+  "species/ciliegio_1.jpg",
+  "species/ciliegio_2.jpg"
+ ],
+ "Pesco": [
+  "species/pesco_1.jpg",
+  "species/pesco_2.jpg"
+ ],
+ "Melo": [
+  "species/melo_1.jpg",
+  "species/melo_2.jpg"
+ ],
+ "Ciclamino": [
+  "species/ciclamino_1.jpg",
+  "species/ciclamino_2.jpg"
+ ],
+ "Primula": [
+  "species/primula_1.jpg",
+  "species/primula_2.jpg"
+ ],
+ "Petunia": [
+  "species/petunia_1.jpg",
+  "species/petunia_2.jpg"
+ ],
+ "Tagete": [
+  "species/tagete_1.jpg",
+  "species/tagete_2.jpg"
+ ],
+ "Zinnia": [
+  "species/zinnia_1.jpg",
+  "species/zinnia_2.jpg"
+ ],
+ "Papavero": [
+  "species/papavero_1.jpg",
+  "species/papavero_2.jpg"
+ ],
+ "Cactus": [
+  "species/cactus_1.jpg",
+  "species/cactus_2.jpg"
+ ]
+}

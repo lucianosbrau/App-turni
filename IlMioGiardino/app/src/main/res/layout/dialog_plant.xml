@@ -1,38 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/etName"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nome pianta" />
+        android:orientation="vertical"
+        android:padding="20dp">
 
-    <EditText
-        android:id="@+id/etSpecies"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Specie (es. Rosa)" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="In quale area del giardino?"
+            android:textStyle="bold"
+            android:textColor="@color/text_main" />
 
-    <Spinner
-        android:id="@+id/spArea"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp" />
+        <Spinner
+            android:id="@+id/spArea"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="4dp" />
 
-    <EditText
-        android:id="@+id/etDays"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Intervallo annaffiatura (giorni)"
-        android:inputType="number" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="Nome pianta (es. Geranio rosa)">
 
-    <EditText
-        android:id="@+id/etNotes"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Note" />
-</LinearLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="Specie (es. Geranio, Rosa, Basilico…)">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etSpecies"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="Annaffia ogni… (giorni)">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etDays"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="Note">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etNotes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tvSpeciesHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textSize="12sp"
+            android:textColor="@color/text_secondary"
+            android:text="Se la specie è in libreria vedrai le sue foto di riferimento." />
+    </LinearLayout>
+</ScrollView>

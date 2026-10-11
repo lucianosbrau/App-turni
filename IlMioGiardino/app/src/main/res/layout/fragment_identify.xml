@@ -2,44 +2,65 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="12dp">
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="16dp">
 
-        <Button
+        <ImageButton
             android:id="@+id/btnBackId"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="← Indietro" />
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:src="@android:drawable/ic_media_previous"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Indietro" />
 
-        <Button
-            android:id="@+id/btnPick"
-            style="?android:attr/buttonBarButtonStyle"
+        <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="📷 Scegli foto" />
+            android:text="Riconosci pianta"
+            android:textAppearance="?attr/textAppearanceTitleLarge"
+            android:textStyle="bold"
+            android:textColor="@color/text_main" />
     </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnPick"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="📷  Scegli una foto"
+        android:textSize="16sp" />
 
     <ImageView
         android:id="@+id/imgPhoto"
         android:layout_width="match_parent"
-        android:layout_height="220dp"
+        android:layout_height="240dp"
+        android:layout_margin="16dp"
         android:scaleType="fitCenter"
         android:contentDescription="Foto pianta" />
 
-    <TextView
-        android:id="@+id/tvResult"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:textSize="15sp"
-        android:paddingTop="8dp"
-        android:text="Scegli una foto per identificare specie e stato di salute. Funziona completamente offline." />
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/tvResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="24dp"
+            android:textSize="15sp"
+            android:lineSpacingExtra="5dp"
+            android:textColor="@color/text_main"
+            android:text="Tutto offline: la foto viene analizzata sul telefono con i modelli AIY plants_V1 (specie) e PlantVillage (malattie)." />
+    </ScrollView>
 </LinearLayout>

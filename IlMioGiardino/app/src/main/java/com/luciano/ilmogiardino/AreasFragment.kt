@@ -23,7 +23,6 @@ class AreasFragment : Fragment() {
         adapter = AreaAdapter()
         rv.adapter = adapter
         v.findViewById<Button>(R.id.btnAddArea).setOnClickListener { showAreaDialog(null) }
-        v.findViewById<Button>(R.id.btnBack).setOnClickListener { requireActivity().supportFragmentManager.popBackStack() }
         return v
     }
 
@@ -34,7 +33,7 @@ class AreasFragment : Fragment() {
         adapter.notifyDataSetChanged()
     }
 
-    private fun plantCount(id: Long) = plants.count { it.areaId == id }
+    private fun plantsIn(id: Long) = plants.filter { it.areaId == id }
 
     inner class AreaAdapter : RecyclerView.Adapter<AreaAdapter.VH>() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH =
@@ -44,19 +43,35 @@ class AreasFragment : Fragment() {
 
         override fun onBindViewHolder(h: VH, pos: Int) {
             val a = areas[pos]
+            val inArea = plantsIn(a.id)
             h.name.text = a.name
-            h.details.text = "${plantCount(a.id)} piante • ${a.description.ifBlank { "—" }}"
+            h.details.text = if (a.description.isNotBlank()) "${a.description}\n" else ""
+            h.details.append("${inArea.size} piante")
+            if (inArea.isNotEmpty()) {
+                h.plantsList.text = inArea.joinToString(" • ") { it.name }
+                h.plantsList.visibility = View.VISIBLE
+            } else {
+                h.plantsList.visibility = View.GONE
+            }
             h.itemView.setOnClickListener { showAreaDialog(a) }
             h.btnDelete.setOnClickListener {
-                areas.remove(a)
-                Store.saveAreas(requireContext(), areas)
-                notifyDataSetChanged()
+                AlertDialog.Builder(requireContext())
+                    .setTitle("Eliminare l'area \"${a.name}\"?")
+                    .setMessage("Le piante non verranno eliminate, resteranno senza area.")
+                    .setPositiveButton("Elimina") { _, _ ->
+                        areas.remove(a)
+                        Store.saveAreas(requireContext(), areas)
+                        notifyDataSetChanged()
+                    }
+                    .setNegativeButton("Annulla", null)
+                    .show()
             }
         }
 
         inner class VH(v: View) : RecyclerView.ViewHolder(v) {
             val name: TextView = v.findViewById(R.id.tvAreaName)
             val details: TextView = v.findViewById(R.id.tvAreaDetails)
+            val plantsList: TextView = v.findViewById(R.id.tvAreaPlants)
             val btnDelete: ImageButton = v.findViewById(R.id.btnDeleteArea)
         }
     }
@@ -67,7 +82,7 @@ class AreasFragment : Fragment() {
         val desc = v.findViewById<EditText>(R.id.etAreaDesc)
         area?.let { name.setText(it.name); desc.setText(it.description) }
 
-        AlertDialog.Builder(requireContext()).setTitle(if (area == null) "Nuova area" else "Modifica area")
+        AlertDialog.Builder(requireContext()).setTitle(if (area == null) "Nuova area del giardino" else "Modifica area")
             .setView(v)
             .setPositiveButton("Salva") { _, _ ->
                 val a = area ?: Area(Store.nextId(requireContext()), "", "")

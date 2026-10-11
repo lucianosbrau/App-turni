@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/nav_plants" android:icon="@android:drawable/ic_menu_myplaces" android:title="Piante" />
+    <item android:id="@+id/nav_areas" android:icon="@android:drawable/ic_menu_mapmode" android:title="Aree" />
+    <item android:id="@+id/nav_calendar" android:icon="@android:drawable/ic_menu_my_calendar" android:title="Annaffia" />
+    <item android:id="@+id/nav_camera" android:icon="@android:drawable/ic_menu_camera" android:title="Riconosci" />
+    <item android:id="@+id/nav_diagnose" android:icon="@android:drawable/ic_menu_help" android:title="Diagnosi" />
+</menu>

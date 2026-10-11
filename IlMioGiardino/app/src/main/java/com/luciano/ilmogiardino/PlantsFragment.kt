@@ -11,6 +11,8 @@ import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class PlantsFragment : Fragment() {
 
@@ -33,11 +35,18 @@ class PlantsFragment : Fragment() {
             override fun onTextChanged(p0: CharSequence?, a: Int, b: Int, c: Int) {}
         })
 
-        v.findViewById<Button>(R.id.btnAddPlant).setOnClickListener { showPlantDialog(null) }
-        v.findViewById<Button>(R.id.btnAreas).setOnClickListener { parentFragment?.let {} ; requireActivity().let { (it as MainActivity).show(AreasFragment()) } }
-        v.findViewById<Button>(R.id.btnCalendar).setOnClickListener { (requireActivity() as MainActivity).show(CalendarFragment()) }
-        v.findViewById<Button>(R.id.btnCamera).setOnClickListener { (requireActivity() as MainActivity).show(IdentifyFragment()) }
-        v.findViewById<Button>(R.id.btnDiagnose).setOnClickListener { (requireActivity() as MainActivity).show(DiagnoseFragment()) }
+        v.findViewById<FloatingActionButton>(R.id.btnAddPlant).setOnClickListener { showPlantDialog(null) }
+
+        val nav = v.findViewById<BottomNavigationView>(R.id.bottomNav)
+        nav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_areas -> { (requireActivity() as MainActivity).show(AreasFragment()); true }
+                R.id.nav_calendar -> { (requireActivity() as MainActivity).show(CalendarFragment()); true }
+                R.id.nav_camera -> { (requireActivity() as MainActivity).show(IdentifyFragment()); true }
+                R.id.nav_diagnose -> { (requireActivity() as MainActivity).show(DiagnoseFragment()); true }
+                else -> true
+            }
+        }
         return v
     }
 
@@ -48,15 +57,19 @@ class PlantsFragment : Fragment() {
         adapter.update()
     }
 
-    private fun areaName(id: Long) = areas.firstOrNull { it.id == id }?.name ?: "—"
+    private fun areaName(id: Long) = areas.firstOrNull { it.id == id }?.name ?: "Senza area"
+
+    private val empty: View? get() = view?.findViewById(R.id.emptyView)
 
     inner class PlantAdapter : RecyclerView.Adapter<PlantAdapter.VH>() {
         private var shown = plants.toList()
 
         fun update() {
             shown = plants.filter {
-                query.isBlank() || it.name.contains(query, true) || it.species.contains(query, true) || areaName(it.areaId).contains(query, true)
+                query.isBlank() || it.name.contains(query, true) || it.species.contains(query, true)
+                        || areaName(it.areaId).contains(query, true)
             }
+            empty?.visibility = if (shown.isEmpty()) View.VISIBLE else View.GONE
             notifyDataSetChanged()
         }
 
@@ -68,18 +81,28 @@ class PlantsFragment : Fragment() {
         override fun onBindViewHolder(h: VH, pos: Int) {
             val p = shown[pos]
             h.name.text = p.name
-            h.details.text = "${p.species.ifBlank { "Specie sconosciuta" }} • Area: ${areaName(p.areaId)} • Ogni ${p.wateringIntervalDays} g"
+            h.species.text = p.species.ifBlank { "Specie sconosciuta" }
+            h.details.text = "📍 ${areaName(p.areaId)} • 💧 ogni ${p.wateringIntervalDays} giorni"
+            SpeciesImages.into(requireContext(), p.species, h.img)
             h.itemView.setOnClickListener { showPlantDialog(p) }
             h.btnDelete.setOnClickListener {
-                plants.remove(p)
-                Notifier.cancel(requireContext(), p)
-                Store.savePlants(requireContext(), plants)
-                update()
+                AlertDialog.Builder(requireContext())
+                    .setTitle("Eliminare ${p.name}?")
+                    .setPositiveButton("Elimina") { _, _ ->
+                        plants.remove(p)
+                        Notifier.cancel(requireContext(), p)
+                        Store.savePlants(requireContext(), plants)
+                        update()
+                    }
+                    .setNegativeButton("Annulla", null)
+                    .show()
             }
         }
 
         inner class VH(v: View) : RecyclerView.ViewHolder(v) {
+            val img: ImageView = v.findViewById(R.id.imgSpecies)
             val name: TextView = v.findViewById(R.id.tvName)
+            val species: TextView = v.findViewById(R.id.tvSpecies)
             val details: TextView = v.findViewById(R.id.tvDetails)
             val btnDelete: ImageButton = v.findViewById(R.id.btnDelete)
         }
@@ -92,7 +115,11 @@ class PlantsFragment : Fragment() {
         val notes = v.findViewById<EditText>(R.id.etNotes)
         val days = v.findViewById<EditText>(R.id.etDays)
         val areaSpinner = v.findViewById<Spinner>(R.id.spArea)
-        val areaNames = areas.map { it.name }.ifEmpty { listOf("Nessuna area") }
+
+        if (areas.isEmpty()) {
+            Toast.makeText(requireContext(), "Prima crea un'area del giardino (scheda Aree)", Toast.LENGTH_LONG).show()
+        }
+        val areaNames = areas.map { it.name }.ifEmpty { listOf("Nessuna area — crea un'area") }
         areaSpinner.adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, areaNames)
 
         plant?.let {
