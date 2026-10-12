@@ -34,6 +34,24 @@ class PlantDetailFragment : Fragment() {
         val img = v.findViewById<ImageView>(R.id.imgDHeader)
         SpeciesImages.into(requireContext(), plant.species, img)
 
+        val infoBox = v.findViewById<LinearLayout>(R.id.infoBox)
+        val info = SpeciesDb.find(requireContext(), plant.species)
+        if (info != null) {
+            v.findViewById<TextView>(R.id.tvInfoTitle).text = "Scheda — ${info.name}"
+            v.findViewById<TextView>(R.id.tvInfoBody).text = buildString {
+                append("🌸 Fioritura: ").append(info.fioritura).append("\n\n")
+                append("🍃 Foglie: ").append(info.foglie).append("\n\n")
+                append("🧪 Concimazione: ").append(info.concimazione).append("\n\n")
+                append("🛡️ Trattamenti: ").append(info.trattamenti).append("\n\n")
+                append("✂️ Potatura: ").append(SpeciesDb.mesiTesto(info.potaturaMesi))
+                append("\n").append(info.potaturaNota).append("\n\n")
+                append("Fonte indicativa: disciplinari tecnici ERSA FVG (produzione integrata)")
+            }
+            infoBox.visibility = View.VISIBLE
+        } else {
+            infoBox.visibility = View.GONE
+        }
+
         val menuWater = v.findViewById<LinearLayout>(R.id.menuWatering)
         val menuTreat = v.findViewById<LinearLayout>(R.id.menuTreatments)
         val menuPhotos = v.findViewById<LinearLayout>(R.id.menuPhotos)

@@ -1,0 +1,330 @@
+{
+  "Albicocco": {
+    "fioritura": "Marzo-aprile, fiori rosa precoci prima delle foglie",
+    "foglie": "Caduche, cuoriformi, verde intenso, dentate",
+    "concimazione": "Fine inverno: concime organico o NPK equilibrato; dopo la raccolta potassio",
+    "trattamenti": "Trattamenti rameici a fine caduta foglie e a prepolline contro corineo e bolla; monitoraggio oidio in estate",
+    "potatura": [3, 4, 10, 11],
+    "potaturaNota": "Potatura secca in ottobre-novembre o marzo-aprile; evitare i periodi di gelo intenso"
+  },
+  "Rosa": {
+    "fioritura": "Da maggio a ottobre, con rifioriture continue",
+    "foglie": "Caduche, composte da 5-7 foglioline dentate, verde scuro",
+    "concimazione": "Marzo: concime granulare specifico rose; ripetere dopo ogni fioritura",
+    "trattamenti": "Preventivi antifungini contro oidio e macchia nera da aprile; afidi in primavera",
+    "potatura": [2, 3, 9, 10],
+    "potaturaNota": "Potatura invernale a fine febbraio-inizio marzo; potatura verde leggera a settembre-ottobre"
+  },
+  "Geranio": {
+    "fioritura": "Da aprile/maggio fino alle prime gelate",
+    "foglie": "Sempreverdi, tondeggianti o zonate, spesso vellutate e aromatiche",
+    "concimazione": "Ogni 2 settimane in estate, concime liquido per gerani; sospendere in inverno",
+    "trattamenti": "Prevenzione oidio e ruggine; attenzione ai marciumi se eccesso d'acqua",
+    "potatura": [3, 4, 9, 10],
+    "potaturaNota": "Cimatura e pulizia in marzo-aprile; potatura di riporto a settembre-ottobre prima del riparo invernale"
+  },
+  "Basilico": {
+    "fioritura": "Estate, spighe bianche (da eliminare per favorire le foglie)",
+    "foglie": "Verde chiaro, ovali, molto aromatiche",
+    "concimazione": "Concime liquido a basso titolo di azoto ogni 2-3 settimane se in vaso",
+    "trattamenti": "Poche avversità; attenzione a oidio e alla peronospora in caso di pioggia",
+    "potatura": [6, 7, 8, 9],
+    "potaturaNota": "Non potatura vera: cimatura continua dei germogli apicali in giugno-settembre"
+  },
+  "Pomodoro": {
+    "fioritura": "Da maggio/giugno fino a settembre",
+    "foglie": "Verde, pennate, odore caratteristico",
+    "concimazione": "All'impianto concime organico maturo; ogni 2 settimane concime a prevalenza di potassio durante la fruttificazione",
+    "trattamenti": "Prevenzione peronospora e oidio con trattamenti rameici/zolfo nelle giornate umide; TOM in Estate",
+    "potatura": [6, 7, 8, 9],
+    "potaturaNota": "Sfemminatura periodica (asportazione femminelle) da giugno a settembre"
+  },
+  "Salvia": {
+    "fioritura": "Da maggio a luglio, spighe blu-viola",
+    "foglie": "Sempreverdi (semitemperate), allungate, grigio-verdi, aromatiche",
+    "concimazione": "Un concime organico a inizio primavera; non esagerare con l'azoto",
+    "trattamenti": "Rustica; attenzione a marciumi radicali in terreni umidi",
+    "potatura": [3, 4, 9, 10],
+    "potaturaNota": "Raccolta/sfoltimento a inizio anno e dopo la fioritura"
+  },
+  "Rosmarino": {
+    "fioritura": "Da dicembre a primavera inoltrata, fiorellini azzurri",
+    "foglie": "Sempreverdi, aghi coriacei, arommatiche, verde scuro superiormente",
+    "concimazione": "Leggera, concime organico a fine inverno; non forzare",
+    "trattamenti": "Rustico; teme ristagni idrici e oidio in ombra",
+    "potatura": [3, 4, 5, 9, 10],
+    "potaturaNota": "Sfoltimento a inizio primavera; potatura di formazione a ottobre"
+  },
+  "Lavanda": {
+    "fioritura": "Giugno-luglio, spighe viola profumate",
+    "foglie": "Sempreverdi, lineari, grigio-argentate, aromatiche",
+    "concimazione": "Pochissimo: un concime povero di azoto a fine inverno al massimo",
+    "trattamenti": "Rustica; evitare bagnature fogliari per prevenire oidio/Phytophthora",
+    "potatura": [3, 4, 8, 9, 10],
+    "potaturaNota": "In marzo-aprile potatura a legno sano; dopo fioritura (agosto-settembre) taglio delle spighe secche"
+  },
+  "Menta": {
+    "fioritura": "Estate, spighe rosate",
+    "foglie": "Caduche, ovali, seghettate, molto profumate",
+    "concimazione": "Concime organico a inizio primavera; in vaso concime liquido mensile",
+    "trattamenti": "Attenzione a oidio in estate e alla ruggine",
+    "potatura": [3, 4, 9, 10],
+    "potaturaNota": "Taglio a terra dei fusti secchi a fine inverno; sfoltimenti estivi"
+  },
+  "Orchidea": {
+    "fioritura": "Variabile, tipicamente inverno-primavera; fiori longevi",
+    "foglie": "Sempreverdi, carnose, verdi lucenti, a forma di nastri",
+    "concimazione": "Ogni 15 giorni in vegetazione con concime specifico orchidee, metà dose",
+    "trattamenti": "Attenzione a cocciniglie e marciumi del colletto; ogni 2-3 anni rinvaso con corteccia",
+    "potatura": [3, 4, 10, 11],
+    "potaturaNota": "A fine fioritura taglio dello stelo sopra il secondo nodo; marzo-ottobre finestra per rinvaso"
+  },
+  "Ficus": {
+    "fioritura": "Coltivato in casa per il fogliame; fioriture insignificanti",
+    "foglie": "Sempreverdi, lucide, ovali-appuntite, verde medio",
+    "concimazione": "Da aprile a settembre, concime liquido per verdi ogni 3-4 settimane",
+    "trattamenti": "Teme ragnetto rosso e cocciniglie in ambiente secco; lavaggi fogliari",
+    "potatura": [3, 4, 5],
+    "potaturaNota": "Potatura a inizio primavera per contenere dimensioni e ramificare"
+  },
+  "Monstera": {
+    "fioritura": "Rara in casa; spata crema tipo calla",
+    "foglie": "Sempreverdi, grandi, incise e fenestrate, verde scuro lucide",
+    "concimazione": "Mensile da marzo a ottobre con concime liquido per verdi",
+    "trattamenti": "Attenzione a marciumi per eccesso di acqua e cocciniglie",
+    "potatura": [3, 4, 5],
+    "potaturaNota": "A inizio primavera accorciamento dei fusti legnosi e rimozione foglie ingiallite"
+  },
+  "Sansevieria": {
+    "fioritura": "Occasionale, spighe profumate verdi-bianche",
+    "foglie": "Sempreverdi, erette, spade sottili o a rosetta, verdi variegate",
+    "concimazione": "Mensile in estate, metà dose di concime per cactus/succulente",
+    "trattamenti": "Rustica; teme solo il marciume per eccesso di acqua",
+    "potatura": [4, 5],
+    "potaturaNota": "Solo rimozione di foglie secche o danneggiate a inizio primavera"
+  },
+  "Aloe": {
+    "fioritura": "Fine inverno-primavera, spighe gialle/arancio",
+    "foglie": "Sempreverdi, succulente, lanceolate, dentate, verdi grigie",
+    "concimazione": "Mensile in primavera-estate con concime per cactus, metà dose",
+    "trattamenti": "Attenzione a marciumi e cocciniglie; terriccio drenante",
+    "potatura": [4, 5],
+    "potaturaNota": "Solo rimozione foglie esterne secche e nette a inizio primavera"
+  },
+  "Oleandro": {
+    "fioritura": "Da giugno a settembre, corimbi bianchi/rosa/rossi",
+    "foglie": "Sempreverdi, lineari-lanceolate, coriacee, verde scuro",
+    "concimazione": "Mensile da aprile ad agosto, concime per piante fiorite",
+    "trattamenti": "Attenzione a oidio e cocciniglie in estate; potatura sanitaria",
+    "potatura": [3, 4, 9, 10],
+    "potaturaNota": "Potatura a fine inverno-inizio primavera prima della ripresa vegetativa"
+  },
+  "Camelia": {
+    "fioritura": "Da ottobre a marzo secondo la varietà",
+    "foglie": "Sempreverdi, ovali-lanceolate, coriacee, verde lucido",
+    "concimazione": "Concime specifico acidofile: fine inverno e fine fioritura",
+    "trattamenti": "Attenione a marciume dei fiori e fumaggine per afidi",
+    "potatura": [3, 4, 9, 10],
+    "potaturaNota": "Subito dopo la fioritura, prima dell'Attingimento vegetativo"
+  },
+  "Azalea": {
+    "fioritura": "Aprile-maggio, fiori rosa/rossi/bianchi a trombetta",
+    "foglie": "Sempreverdi, piccole, ovali, verde scuro, pubescenti",
+    "concimazione": "Concime per acidofile dopo la fioritura e a fine estate",
+    "trattamenti": "Attenzione a coccin FARINOSA e clorosi ferrica; acqua non calcarea",
+    "potatura": [4, 5, 6],
+    "potaturaNota": "Cimatura dopo la fioritura per mantenere compattezza"
+  },
+  "Ortensia": {
+    "fioritura": "Da giugno a settembre, grandi globi blu/rosa/bianchi",
+    "foglie": "Caduche, grandi, opposte, verde chiaro",
+    "concimazione": "Concime acidofile a inizio primavera e dopo la fioritura; alluminio per il blu",
+    "trattamenti": "Prevenire l'oidio; proteggere da gelate tardive i germogli",
+    "potatura": [2, 3, 10, 11],
+    "potaturaNota": "A fine inverno potatura delle vecchie infiorescenze; ottobre-novembre pulitura leggera"
+  },
+  "Begonia": {
+    "fioritura": "Da primavera ad autunno secondo la specie",
+    "foglie": "Sempreverdi, asimmetriche, spesso lucide o colorate",
+    "concimazione": "Mensile da marzo a settembre con concime per fiorite",
+    "trattamenti": "Attenzione a oidio e botrytis: bagnare solo il terreno",
+    "potatura": [4, 5, 9],
+    "potaturaNota": "Cimatura primaverile per ramificare; pulizia a settembre"
+  },
+  "Viola": {
+    "fioritura": "Febbraio-maggio, fiori profumati",
+    "foglie": "Sempreverdi (semitemperate), cuoriformi, verde scuro",
+    "concimazione": "Concime per fiorite mensile da marzo",
+    "trattamenti": "Poco esigente; attenzione a lumache e afidi",
+    "potatura": [3, 4, 10, 11],
+    "potaturaNota": "Rimozione fiori appassiti per prolungare la fioritura"
+  },
+  "Girasole": {
+    "fioritura": "Da luglio a settembre, capolini gialli",
+    "foglie": "Caduche, grandi, cuoriformi, ruvide",
+    "concimazione": "Concime organico all'impianto; potassio prima della fioritura",
+    "trattamenti": "Attenzione a oidio e afidi sul retro dei capolini",
+    "potatura": [7, 8, 9],
+    "potaturaNota": "Solo taglio dei capolini sfioriti per favorire fioriture laterali"
+  },
+  "Margherita": {
+    "fioritura": "Da aprile a settembre, capolini bianchi",
+    "foglie": "Caduche (semitemperate), dentate, verdi",
+    "concimazione": "Concime per fiorite ogni 3-4 settimane da aprile",
+    "trattamenti": "Attenzione a oidio e slugs; rustica",
+    "potatura": [3, 4, 9, 10],
+    "potaturaNota": "Rimozione capolini sfioriti e potatura a metà settembre per rifioriture"
+  },
+  "Tulipano": {
+    "fioritura": "Aprile-maggio",
+    "foglie": "Caduche, basali, lanceolate, verde-glauco",
+    "concimazione": "All'impianto (ottobre) concime a lenta cessione specifico bulbi",
+    "trattamenti": "Attenzione a marciumi per ristagno d'acqua e topi",
+    "potatura": [6, 7, 10, 11],
+    "potaturaNota": "A fine fioritura taglio dello stelo; a giugno-luglio taglio foglie ingiallite; ottobre-novembre impianto nuovi bulbi"
+  },
+  "Giglio": {
+    "fioritura": "Da maggio a luglio secondo la specie",
+    "foglie": "Sempreverdi o caduche, lanceolate, disposte a spirale",
+    "concimazione": "Marzo: concime granulare per bulbose; ripetere a fine fioritura",
+    "trattamenti": "Prevenire afidi e botrytis con buone areazioni",
+    "potatura": [6, 7, 8, 10],
+    "potaturaNota": "Taglio degli steli sfioriti a giugno-luglio; pulizia foglie a fine estate; ottobre divisione dei bulbi"
+  },
+  "Peperoncino": {
+    "fioritura": "Da giugno a settembre, fiorellini bianchi",
+    "foglie": "Verdi, ovali-lanceolate, lisce",
+    "concimazione": "All'impianto concime organico maturo; ogni 2 settimane potassio in fruttificazione",
+    "trattamenti": "Prevenzione oidio e afidi; evitare stress idrici che causano marciume apicale",
+    "potatura": [6, 7, 8, 9],
+    "potaturaNota": "Sfemminatura leggera e rimozione getti bassi in estate"
+  },
+  "Zucchina": {
+    "fioritura": "Da giugno a settembre, fiori gialli unisessuali",
+    "foglie": "Grandi, lobate, ruvide",
+    "concimazione": "Concime organico maturo all'impianto; poco azoto dopo",
+    "trattamenti": "Attenzione a oidio a fine estate",
+    "potatura": [7, 8, 9],
+    "potaturaNota": "Solo rimozione foglie vecchie e ingiallite per arieggiare"
+  },
+  "Insalata": {
+    "fioritura": "Se lasciata salire a seme in primavera-estate",
+    "foglie": "Variabili, da cespo a foglie sciolte",
+    "concimazione": "Concime organico prima del trapianto; azoto leggero durante il ciclo",
+    "trattamenti": "Attenzione a lumache e afidi; irrigazione regolare",
+    "potatura": [4, 5, 6, 9, 10],
+    "potaturaNota": "Solo raccolta foglie esterne per consumo progressivo"
+  },
+  "Fragola": {
+    "fioritura": "Aprile-maggio, fiori bianchi",
+    "foglie": "Trifogliate, verde chiaro, dentate",
+    "concimazione": "A fine inverno concime specifico fragole (potassio); dopo raccolta concime organico",
+    "trattamenti": "Pacciamatura contro marciuioni e attenzione a oidio",
+    "potatura": [7, 8, 10, 11],
+    "potaturaNota": "Dopo la raccolta (luglio-agosto) taglio foglie a 5 cm; ottobre pulitura stoloni"
+  },
+  "Vite": {
+    "fioritura": "Maggio-giugno",
+    "foglie": "Caduche, grandi, lobate, verde scuro",
+    "concimazione": "Fine inverno: concime organico; post-allegagione equilibrio NPK",
+    "trattamenti": "Programma antiperonospora/oidio da maggio ad agosto secondo bollettini",
+    "potatura": [1, 2, 3, 11, 12],
+    "potaturaNota": "Potatura secca da novembre a marzo (evitando forti geli); verde in estate (sfemminatura, cimatura)"
+  },
+  "Limone": {
+    "fioritura": "Parecchie fioriture l'anno, principali in primavera",
+    "foglie": "Sempreverdi, ovali, verde lucido, aromatiche",
+    "concimazione": "Mensile da marzo a ottobre con concime specifico agrumi",
+    "trattamenti": "Prevenzione fumaggine e cocciniglie; trattamento rameico autunnale",
+    "potatura": [3, 4, 10, 11],
+    "potaturaNota": "Potatura a fine inverno e leggera a ottobre; eliminare succhioni"
+  },
+  "Olivo": {
+    "fioritura": "Maggio-giugno, pannocchie bianche",
+    "foglie": "Sempreverdi, lanceolate, verde sopra e argentate sotto",
+    "concimazione": "Fine inverno: concime organico NPK; azoto a ripresa vegetativa",
+    "trattamenti": "Trattamento rameico autunnale contro occhio di pavone; attenzione a batteriosi",
+    "potatura": [2, 3, 4, 8, 9],
+    "potaturaNota": "Potatura secca a fine inverno-inizio primavera; potatura verde in agosto-settembre"
+  },
+  "Ciliegio": {
+    "fioritura": "Marzo-aprile, fiori bianchi prima delle foglie",
+    "foglie": "Caduche, ovali-lanceolate, seghettate, verde chiaro",
+    "concimazione": "Fine inverno: concime organico; potassio dopo la raccolta",
+    "trattamenti": "Trattamenti rameici autunno-inverno; attenzione a monilia in fioritura umida",
+    "potatura": [1, 2, 3, 8, 9],
+    "potaturaNota": "Potatura secca in pieno inverno o subito dopo la raccolta; evitare tagli grandi"
+  },
+  "Pesco": {
+    "fioritura": "Marzo, fiori rosa prima delle foglie",
+    "foglie": "Caduche, lanceolate, verde medio, dentate",
+    "concimazione": "Fine inverno organico; post-raccolta potassio e fosforo",
+    "trattamenti": "Rameici a caduta foglie e prepolline contro bolla; copertura contro cimice asiatica",
+    "potatura": [2, 3, 6, 7, 8],
+    "potaturaNota": "Potatura verde in estate (giugno-luglio) oltre a quella invernale a febbraio-marzo"
+  },
+  "Melo": {
+    "fioritura": "Aprile-maggio, fiori bianco-rosati",
+    "foglie": "Caduche, ovali, dentate, verde scuro",
+    "concimazione": "Fine inverno: concime organico o NPK; calcium spray contro butteratura",
+    "trattamenti": "Programma fungino da prefioritura contro scab: secondo disciplinare ERSA",
+    "potatura": [1, 2, 3, 11, 12],
+    "potaturaNota": "Potatura invernale da novembre a marzo; verificare germogliamenti a marzo"
+  },
+  "Ciclamino": {
+    "fioritura": "Da ottobre a marzo",
+    "foglie": "Sempreverdi, cuoriformi con disegni argentei",
+    "concimazione": "Ogni 2 settimane durante la fioritura, concime specifico ciclamini",
+    "trattamenti": "Attenzione a marciumi: mai bagnare il bulbo; ambiente fresco",
+    "potatura": [4, 5, 6],
+    "potaturaNota": "A fine fioritura (aprile-maggio) rimozione fiori e foglie appassite; sospensione estiva"
+  },
+  "Primula": {
+    "fioritura": "Febbraio-maggio",
+    "foglie": "Sempreverdi (semitemperate), rugose, verde chiaro",
+    "concimazione": "Concime per fiorite ogni 2 settimane durante la fioritura",
+    "trattamenti": "Attenzione a lumache e afidi",
+    "potatura": [4, 5, 10],
+    "potaturaNota": "Solo rimozione fiori appassiti per prolungare la fioritura"
+  },
+  "Petunia": {
+    "fioritura": "Da maggio a ottobre",
+    "foglie": "Sempreverdi (estive), ovali, appiccicose, profumate",
+    "concimazione": "Ogni 2 settimane da aprile a settembre, concime per fiorite",
+    "trattamenti": "Attenzione a afidi e botrytis in luglio umido",
+    "potatura": [5, 6, 7, 8, 9],
+    "potaturaNota": "Cimatura iniziale a maggio; potatura di ringiovanimento a luglio per rifioritura"
+  },
+  "Tagete": {
+    "fioritura": "Da giugno a ottobre, capolini gialli-arancio",
+    "foglie": "Sempreverdi (estive), pennate, aromatiche",
+    "concimazione": "Leggera mensile in estate",
+    "trattamenti": "Rustica; allontana alcuni nematodi dall'orto",
+    "potatura": [6, 7, 8, 9],
+    "potaturaNota": "Rimozione capolini sfioriti per fioriture continue"
+  },
+  "Zinnia": {
+    "fioritura": "Da giugno a ottobre",
+    "foglie": "Sempreverdi (estive), ovali-lanceolate, verdi",
+    "concimazione": "Mensile da giugno, concime per fiorite",
+    "trattamenti": "Attenzione a oidio a fine estate; annaffiare alla base",
+    "potatura": [6, 7, 8, 9],
+    "potaturaNota": "Cimatura iniziale e rimozione capolini sfioriti"
+  },
+  "Papavero": {
+    "fioritura": "Maggio-giugno",
+    "foglie": "Caduche, pennatosette, pelose",
+    "concimazione": "Pochissimo: suolo povero va bene",
+    "trattamenti": "Rustica; si autosemina",
+    "potatura": [6, 7, 8],
+    "potaturaNota": "Rimozione capsule sfiorite a giugno-luglio se non si vuole l'autosemina"
+  },
+  "Cactus": {
+    "fioritura": "Primavera-estate secondo la specie",
+    "foglie": "Assenti: fusti succulenti con spine",
+    "concimazione": "Mensile in primavera-estate, concime specifico cactus, metà dose",
+    "trattamenti": "Teme solo i marciumi: terriccio drenante e annaffiature distanziate",
+    "potatura": [4, 5],
+    "potaturaNota": "Solo rimozione di pale/fusti danneggiati a inizio primavera"
+  }
+}

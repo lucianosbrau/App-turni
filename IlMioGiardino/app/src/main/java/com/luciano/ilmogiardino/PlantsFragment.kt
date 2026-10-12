@@ -116,7 +116,7 @@ class PlantsFragment : Fragment() {
     private fun showPlantDialog(plant: Plant?) {
         val v = layoutInflater.inflate(R.layout.dialog_plant, null)
         val name = v.findViewById<EditText>(R.id.etName)
-        val species = v.findViewById<EditText>(R.id.etSpecies)
+        val species = v.findViewById<AutoCompleteTextView>(R.id.etSpecies)
         val notes = v.findViewById<EditText>(R.id.etNotes)
         val days = v.findViewById<EditText>(R.id.etDays)
         val areaSpinner = v.findViewById<Spinner>(R.id.spArea)
@@ -126,6 +126,13 @@ class PlantsFragment : Fragment() {
         }
         val areaNames = areas.map { it.name }.ifEmpty { listOf("Nessuna area — crea un'area") }
         areaSpinner.adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, areaNames)
+
+        species.setAdapter(ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, SpeciesDb.names(requireContext())))
+        val hint = v.findViewById<TextView>(R.id.tvSpeciesHint)
+        species.onItemClickListener = AdapterView.OnItemClickListener { _, _, _, _ ->
+            val info = SpeciesDb.find(requireContext(), species.text.toString())
+            hint.text = info?.let { "✂️ Potatura: ${SpeciesDb.mesiTesto(it.potaturaMesi)} — vedi scheda dopo il salvataggio" } ?: "Se la specie è in libreria vedrai le sue foto di riferimento."
+        }
 
         plant?.let {
             name.setText(it.name)
@@ -150,6 +157,7 @@ class PlantsFragment : Fragment() {
                 Store.savePlants(requireContext(), plants)
                 Notifier.cancel(requireContext(), p)
                 Notifier.scheduleNext(requireContext(), p, p.wateringIntervalDays * 24L * 3600L * 1000L)
+                Notifier.schedulePruningChecks(requireContext())
                 adapter.update()
             }
             .setNegativeButton("Annulla", null)

@@ -93,6 +93,44 @@ object Notifier {
         am.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, at, pi)
     }
 
+    fun notifyPruning(ctx: Context, plant: Plant, speciesName: String, monthName: String) {
+        ensureChannel(ctx)
+        val n = NotificationCompat.Builder(ctx, CHANNEL_ID)
+            .setSmallIcon(android.R.drawable.ic_menu_my_calendar)
+            .setContentTitle("Periodo di potatura: $speciesName")
+            .setContentText("È il mese giusto per potare ${plant.name} ($monthName)")
+            .setStyle(NotificationCompat.BigTextStyle().bigText("È iniziato $monthName: periodo di potatura indicato per $speciesName. Tocca per aprire la scheda di ${plant.name} nella sezione Trattamenti."))
+            .setAutoCancel(true)
+            .build()
+        val nm = ctx.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        nm.notify((plant.id + 200000L).toInt(), n)
+    }
+
+    fun schedulePruningChecks(ctx: Context) {
+        val plants = Store.loadPlants(ctx)
+        val cal = java.util.Calendar.getInstance()
+        for (p in plants) {
+            val info = SpeciesDb.find(ctx, p.species) ?: continue
+            for (m in info.potaturaMesi) {
+                val c = java.util.Calendar.getInstance()
+                c.set(java.util.Calendar.MONTH, (m - 1) % 12)
+                c.set(java.util.Calendar.DAY_OF_MONTH, 1)
+                c.set(java.util.Calendar.HOUR_OF_DAY, 9)
+                c.set(java.util.Calendar.MINUTE, 0)
+                if (c.timeInMillis <= System.currentTimeMillis())
+                    c.add(java.util.Calendar.YEAR, 1)
+                val pi = PendingIntent.getBroadcast(
+                    ctx, (p.id * 100 + (m - 1) % 12 + 200000L).toInt(),
+                    Intent(ctx, WateringReceiver::class.java)
+                        .putExtra("prunePlant", p.id).putExtra("pruneMonth", m),
+                    PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+                )
+                val am = ctx.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+                am.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, c.timeInMillis, pi)
+            }
+        }
+    }
+
     fun cancelTreatment(ctx: Context, treatment: Treatment) {
         val am = ctx.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         am.cancel(PendingIntent.getBroadcast(
@@ -109,6 +147,15 @@ object Notifier {
 
 class WateringReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
+        val prunePlant = intent.getLongExtra("prunePlant", -1L)
+        if (prunePlant != -1L) {
+            val month = intent.getIntExtra("pruneMonth", 0)
+            val plant = Store.loadPlants(context).firstOrNull { it.id == prunePlant } ?: return
+            val info = SpeciesDb.find(context, plant.species) ?: return
+            Notifier.notifyPruning(context, plant, info.name, SpeciesDb.monthNames[(month - 1) % 12].replaceFirstChar { it.uppercase() })
+            Notifier.schedulePruningChecks(context)
+            return
+        }
         val tid = intent.getLongExtra("tid", -1L)
         if (tid != -1L) {
             val t = TreatmentStore.load(context).firstOrNull { it.id == tid } ?: return
@@ -138,5 +185,6 @@ class BootReceiver : BroadcastReceiver() {
         for (t in TreatmentStore.load(context)) {
             plantById[t.plantId]?.let { Notifier.scheduleTreatment(context, it, t) }
         }
+        Notifier.schedulePruningChecks(context)
     }
 }
